@@ -14,10 +14,13 @@
     "jsx": "react-jsx",
     "incremental": true,
 
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./components/*"]
+      "@/*": ["./*"]
     },
 
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      { "name": "next" }
+    ]
   }
 }
