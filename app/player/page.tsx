@@ -44,6 +44,17 @@ export default function PlayerPage() {
 
   async function deletePlayer(id: number) {
 
+    const ok = confirm(
+      '선수를 삭제하면 관련 경기 기록도 모두 삭제됩니다.\n정말 삭제하시겠습니까?'
+    )
+
+    if (!ok) return
+
+    await supabase
+      .from('matches')
+      .delete()
+      .or(`player1_id.eq.${id},player2_id.eq.${id}`)
+
     await supabase
       .from('players')
       .delete()
